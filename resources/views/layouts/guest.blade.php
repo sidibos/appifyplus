@@ -13,7 +13,7 @@
         <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
         <script type="text/javascript" src="{{ asset('/js/app.js') }}"></script>
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <!-- @vite(['resources/css/app.css', 'resources/js/app.js']) -->
     </head>
     <body>
         <div class="font-sans text-gray-900 antialiased">

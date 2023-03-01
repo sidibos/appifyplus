@@ -18,4 +18,12 @@ class App extends Model
     {
         return $this->belongsTo(Customer::class);
     }
+
+    /**
+     * Get the apps for the customer.
+     */
+    public function appConfigs(): HasMany
+    {
+        return $this->hasMany(AppConfig::class);
+    }
 }
