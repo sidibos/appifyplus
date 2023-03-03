@@ -1,0 +1,1 @@
+import{L as e}from"./app-fbce0335.js";function c({children:t}){return React.createElement("main",null,React.createElement("header",null,React.createElement(e,{href:"/"},"Home"),React.createElement(e,{href:"/about"},"About"),React.createElement(e,{href:"/contact"},"Contact")),React.createElement("article",null,t))}export{c as L};

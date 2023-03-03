@@ -4,17 +4,36 @@ namespace App\Http\Controllers;
 
 use App\Models\App;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class AppController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Inertia\Response
      */
     public function index()
     {
-        return view('app.index');
+        return Inertia::render(
+            'App/Welcome', 
+            ['user' => ['name' => 'moussa']]
+        );
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function welcome(): Response
+    {
+        return Inertia::render(
+            'App/Welcome',
+            []
+            // ['user' => ['name' => 'moussa']]
+        );
     }
 
     /**
@@ -46,7 +65,7 @@ class AppController extends Controller
      */
     public function show(App $app)
     {
-        //
+        return view('App/Index');
     }
 
     /**

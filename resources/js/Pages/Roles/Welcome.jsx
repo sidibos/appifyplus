@@ -1,7 +1,7 @@
-import Layout from '@/Layouts/Guest';
+import Layout from '@/Layouts/Layout';
 import { Head } from '@inertiajs/inertia-react';
 
-export default function Index({ user }) {
+export default function Welcome({ user }) {
   return (
     <Layout>
       <Head title="Welcome" />

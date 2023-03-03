@@ -1,0 +1,1 @@
+import{L as t}from"./Layout-b96fd9b6.js";import{H as l}from"./app-fbce0335.js";function r({user:e}){return React.createElement(t,null,React.createElement(l,{title:"Welcome"}),React.createElement("h1",null,"Welcome"),React.createElement("p",null,"Hello ",e.name,", welcome to your first Inertia app!"))}export{r as default};

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Role;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+// use Illuminate\Http\Request;
+// use Illuminate\Http\Response;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class RoleController extends Controller
 {
@@ -15,7 +17,26 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return view('roles.index');
+        return Inertia::render(
+            'Roles/Index', 
+            [
+                'user' => ['name' => 'moussa']
+            ]
+        );
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Inertia\Response
+     */
+    public function welcome(): Response
+    {
+        return Inertia::render(
+            'Roles/Welcome',
+            []
+            // ['user' => ['name' => 'moussa']]
+        );
     }
 
     /**

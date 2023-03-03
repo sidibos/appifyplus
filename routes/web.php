@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\RoleController;
+use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
+use App\Http\Controllers\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,17 +17,15 @@ use App\Http\Controllers\AppController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return Inertia::render('Welcome');
+ });
 
 Route::get('/app', [AppController::class, 'index']);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/roles', [RoleController::class, 'index']);
 
-Route::resource('roles', RoleController::class)
-    ->only(['index', 'store'])
-    ->middleware(['auth', 'verified']);
+Route::get('/dashboard', function () {
+    return Inertia::render('Dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
