@@ -20,7 +20,15 @@ Route::get('/', function () {
     return Inertia::render('Welcome');
  });
 
-Route::get('/app', [AppController::class, 'index']);
+Route::get('/app', [AppController::class, 'index'])
+->middleware(['auth', 'verified'])->name('app-home');
+
+Route::get('/create-app', [AppController::class, 'create'])
+->middleware(['auth', 'verified'])->name('create.app');
+
+Route::post('/create-app', [AppController::class, 'store'])
+->middleware(['auth', 'verified'])->name('create.app');
+
 
 Route::get('/roles', [RoleController::class, 'index']);
 

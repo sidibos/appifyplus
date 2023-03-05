@@ -6,6 +6,7 @@ use App\Models\App;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
+use App\Http\Resources\AppCollection;
 
 class AppController extends Controller
 {
@@ -14,12 +15,16 @@ class AppController extends Controller
      *
      * @return Inertia\Response
      */
-    public function index()
+    public function index(): Response
     {
-        return Inertia::render(
-            'App/Welcome', 
-            ['user' => ['name' => 'moussa']]
-        );
+        // return Inertia::render(
+        //     'App/Index', 
+        //     ['user' => ['name' => 'moussa']]
+        // );
+        
+        return Inertia::render('App/Index', [
+            'apps' => App::all(),
+        ]);
     }
 
     /**
@@ -30,7 +35,7 @@ class AppController extends Controller
     public function welcome(): Response
     {
         return Inertia::render(
-            'App/Welcome',
+            'App/Index',
             []
             // ['user' => ['name' => 'moussa']]
         );
@@ -43,7 +48,7 @@ class AppController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('App/Create');
     }
 
     /**
@@ -54,7 +59,20 @@ class AppController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'      => ['required', 'string', 'min:3'],
+            'type'      => ['required', 'string', 'min:3'],
+            'status'    => ['required', 'string', 'min:3'],
+        ]);
+
+        $user = App::create([
+            'name' => $request->name,
+            'type' => $request->type,
+            'status' => $request->status,
+            'customer_id' => 'xxx-xx-xx-x'
+        ]);
+
+        return redirect('/app');
     }
 
     /**
