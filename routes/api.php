@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Resources\AppCollection;
+use App\Models\App;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,4 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::get('/apps', function () {
+    return new AppCollection(App::all());
 });

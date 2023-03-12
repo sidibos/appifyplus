@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 use App\Http\Resources\AppCollection;
+use App\Http\Resources\AppResource;
 
 class AppController extends Controller
 {
@@ -17,13 +18,8 @@ class AppController extends Controller
      */
     public function index(): Response
     {
-        // return Inertia::render(
-        //     'App/Index', 
-        //     ['user' => ['name' => 'moussa']]
-        // );
-        
         return Inertia::render('App/Index', [
-            'apps' => App::all(),
+            'apps' => new AppCollection(App::all()),
         ]);
     }
 

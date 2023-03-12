@@ -20,7 +20,7 @@ export default function Index({ apps }) {
           </thead>
           <tbody>
           
-          {apps && apps.map(({ id, name, type, status, customer_id, created_at }) => {
+          {apps && apps.data.map(({ id, name, type, status, customer_id, created_at }) => {
               return (
                 <tr
                   key={id}

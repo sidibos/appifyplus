@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
@@ -9,12 +10,15 @@ class AppCollection extends ResourceCollection
      * Transform the resource collection into an array.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return array
+     * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
     public function toArray($request)
     {
-        return $this->collection->map->only(
-            'id', 'name', 'type', 'status', 'created_at'
-        );
+        return [
+            'data'  => $this->collection,
+            'links' => [
+                'self' => 'link-value',
+            ],
+        ];
     }
 }
