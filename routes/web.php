@@ -29,6 +29,8 @@ Route::get('/create-app', [AppController::class, 'create'])
 Route::post('/create-app', [AppController::class, 'store'])
 ->middleware(['auth', 'verified'])->name('create.app');
 
+Route::get('/app/edit/{app}', [AppController::class, 'edit'])
+->middleware(['auth', 'verified'])->name('app.edit');
 
 Route::get('/roles', [RoleController::class, 'index']);
 

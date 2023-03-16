@@ -16,6 +16,7 @@ export default function Index({ apps }) {
               <th className="px-6 pt-5 pb-4">Status</th>
               <th className="px-6 pt-5 pb-4">Customer ID</th>
               <th className="px-6 pt-5 pb-4">Created At</th>
+              <th className="px-6 pt-5 pb-4">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -43,6 +44,16 @@ export default function Index({ apps }) {
                   </td>
                   <td className="w-px border-t">
                     {created_at}
+                  </td>
+                  <td className="w-px border-t">
+                    <Link 
+                    to={`/app/edit/${id}`}
+                    href={`/app/edit/${id}`}
+                    className="text-sm text-gray-700 underline"
+                    method="get"
+                    >
+                      Edit App
+                    </Link>
                   </td>
                 </tr>
               );

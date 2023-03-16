@@ -90,7 +90,10 @@ class AppController extends Controller
      */
     public function edit(App $app)
     {
-        //
+        return Inertia::render(
+            'App/Edit',
+            ['app' => $app]
+        );
     }
 
     /**
