@@ -65,7 +65,7 @@ export default function Edit({app}) {
                     />
                 </div>
                 <div className="mt-4">
-                    <InputLabel htmlFor="customer_id" value="Customer_id" />
+                    <InputLabel htmlFor="customer_id" value="Customer ID" />
                     <TextInput
                         id="customer_id"
                         className="mt-1 block w-full"

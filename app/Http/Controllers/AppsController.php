@@ -9,7 +9,7 @@ use Inertia\Response;
 use App\Http\Resources\AppCollection;
 use App\Http\Resources\AppResource;
 
-class AppController extends Controller
+class AppsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +18,7 @@ class AppController extends Controller
      */
     public function index(): Response
     {
-        return Inertia::render('App/Index', [
+        return Inertia::render('Apps/Index', [
             'apps' => new AppCollection(App::all()),
         ]);
     }
@@ -31,7 +31,7 @@ class AppController extends Controller
     public function welcome(): Response
     {
         return Inertia::render(
-            'App/Index',
+            'Apps/Index',
             []
             // ['user' => ['name' => 'moussa']]
         );
@@ -44,7 +44,7 @@ class AppController extends Controller
      */
     public function create()
     {
-        return Inertia::render('App/Create');
+        return Inertia::render('Apps/Create');
     }
 
     /**
@@ -68,7 +68,7 @@ class AppController extends Controller
             'customer_id' => 'xxx-xx-xx-x'
         ]);
 
-        return redirect('/app');
+        return redirect('/apps');
     }
 
     /**
@@ -79,7 +79,7 @@ class AppController extends Controller
      */
     public function show(App $app)
     {
-        return view('App/Index');
+        return view('Apps/Index');
     }
 
     /**
@@ -91,7 +91,7 @@ class AppController extends Controller
     public function edit(App $app)
     {
         return Inertia::render(
-            'App/Edit',
+            'Apps/Edit',
             ['app' => $app]
         );
     }

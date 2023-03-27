@@ -18,6 +18,7 @@ export default function Dashboard(props) {
                     </div>
                 </div>
             </div>
+            <div className="py-12"></div>
         </Authenticated>
     );
 }

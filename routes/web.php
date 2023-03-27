@@ -2,8 +2,9 @@
 
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AppController;
+use App\Http\Controllers\AppsController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,16 +21,19 @@ Route::get('/', function () {
     return Inertia::render('Welcome');
  });
 
-Route::get('/app', [AppController::class, 'index'])
-->middleware(['auth', 'verified'])->name('app-home');
+Route::get('/apps', [AppsController::class, 'index'])
+->middleware(['auth', 'verified'])->name('apps');
 
-Route::get('/create-app', [AppController::class, 'create'])
+Route::get('/users', [UsersController::class, 'index'])
+->middleware(['auth', 'verified'])->name('users');
+
+Route::get('/create-app', [AppsController::class, 'create'])
 ->middleware(['auth', 'verified'])->name('create.app');
 
-Route::post('/create-app', [AppController::class, 'store'])
+Route::post('/create-app', [AppsController::class, 'store'])
 ->middleware(['auth', 'verified'])->name('create.app');
 
-Route::get('/app/edit/{app}', [AppController::class, 'edit'])
+Route::get('/app/edit/{app}', [AppsController::class, 'edit'])
 ->middleware(['auth', 'verified'])->name('app.edit');
 
 Route::get('/roles', [RoleController::class, 'index']);
